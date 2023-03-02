@@ -40,7 +40,7 @@ public class FlourPacker {
     public static boolean canPack(int bigCount, int smallCount, int goal) {
         if (goal < 0) return false;
         int total = 0;
-        int bigBags = bigCount < (goal / 5) ? bigCount : goal / 5;
+        int bigBags = Math.min(bigCount, (goal / 5));
         total += (bigBags * 5) + smallCount;
         return total >= goal;
     }
